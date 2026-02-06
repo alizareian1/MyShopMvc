@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachraFac.Web", "TachraFac.Web\TachraFac.Web.csproj", "{51F19D0F-C4B1-4CC8-B51B-38FABE6898B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachraFac.Core", "TachraFac.Core\TachraFac.Core.csproj", "{6C352368-D408-44AC-8747-7328A28A26B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TachraFac.Datalayer", "TachraFac.Datalayer\TachraFac.Datalayer.csproj", "{5F46D68A-BB8B-489E-A2CB-700B1200EE3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51F19D0F-C4B1-4CC8-B51B-38FABE6898B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F19D0F-C4B1-4CC8-B51B-38FABE6898B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F19D0F-C4B1-4CC8-B51B-38FABE6898B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F19D0F-C4B1-4CC8-B51B-38FABE6898B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C352368-D408-44AC-8747-7328A28A26B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C352368-D408-44AC-8747-7328A28A26B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C352368-D408-44AC-8747-7328A28A26B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C352368-D408-44AC-8747-7328A28A26B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F46D68A-BB8B-489E-A2CB-700B1200EE3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F46D68A-BB8B-489E-A2CB-700B1200EE3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F46D68A-BB8B-489E-A2CB-700B1200EE3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F46D68A-BB8B-489E-A2CB-700B1200EE3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
