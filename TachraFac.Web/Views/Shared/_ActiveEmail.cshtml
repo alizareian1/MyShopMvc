@@ -1,0 +1,12 @@
+﻿@model TachraFac.Datalayer.Entities.User.User
+@{
+	ViewData["Title"] = "";
+}
+
+<div style="direction:rtl;padding:20px">
+	<h2>@Model.UserName عزیز !</h2>
+	<p>با تشکر از ثبت نام شما لطفا حساب کاربری خود را فعال کنید</p>
+	<p>
+		<a href="https://localhost:7205/Account/ActiveAccount/@Model.ActiveCode">فعال سازی حساب کاربری</a>
+	</p>
+</div>

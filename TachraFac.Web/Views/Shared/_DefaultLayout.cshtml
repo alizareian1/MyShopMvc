@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Character Set -->
+        <meta charset="utf-8" />
+
+        <!-- Page Title -->
+        <title>تچرا | @ViewData["Title"]  @* - Freshly Baked Delights for Every Occasion *@</title>
+
+        <partial name="_MetaTags" />
+        <!-- Favicon -->
+        <link href="~/img/favicon.ico" rel="icon" />
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+        <!-- Icon Fonts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/~/css/all.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <!-- Library Stylesheets -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet" />
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+        <partial name="_Styles" />
+    </head>
+
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid top-bar bg-dark text-light px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 align-items-center d-none d-lg-flex">
+            <div class="col-lg-6 px-5 text-start">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Career</a></li>
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Terms</a></li>
+                    <li class="breadcrumb-item"><a class="small text-light" href="#">Privacy</a></li>
+                    @if(User.Identity.IsAuthenticated){
+                        <li class="breadcrumb-item"><a class="small text-light" href="/UserPanel">@User.Identity.Name ، خوش آمدی</a></li>
+                        <li class="breadcrumb-item"><a class="small text-light" href="/Logout">خروج</a></li>
+                    }
+                    else{                    
+                    <li class="breadcrumb-item"><a class="small text-light" href="/Login">ورود</a></li>
+                    <li class="breadcrumb-item"><a class="small text-light" href="/Register">عضویت</a></li>
+                    }
+
+                   @*  <li class="breadcrumb-item">
+                        <a class="small text-light" href="/Login">ورود</a>
+                        /
+                        <a class="small text-light" href="/Register">عضویت</a>
+                    </li> *@
+                </ol>
+            </div>
+
+            @* <div class="col-sm-6 col-xs-12">
+                <div class="clientarea">
+                    <div class="loggein hidden">
+                        <i class="zmdi zmdi-account"></i><a href=""> ایمان مدائنی ، خوش آمدی </a>
+                    </div>
+                    <div class="signin">
+                        <i class="zmdi zmdi-account"></i>
+                        <a href="/Login"> ورود </a> /
+                        <a href="/Register"> عضویت </a>
+                    </div>
+                </div>
+            </div> *@
+
+            <div class="col-lg-6 px-5 text-end">
+                <small>Follow us:</small>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn-lg-square text-primary border-end rounded-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn-lg-square text-primary pe-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <partial name="_NavBar" />
+    <!-- Navbar End -->
+
+
+    <!--Content-->
+@RenderBody()
+    <!--End Content-->
+
+    <!-- Footer Start -->
+    <partial name="_Footer" />
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a href="https://github.com/AkramKhattab">AkramKhattab</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By <a href="https://github.com/AkramKhattab">Akram Khattab</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/validate.min.js"></script>
+    <script src="~/js/validate.unobtrusiv.js"></script>
+  
+
+</body>
+
+</html>

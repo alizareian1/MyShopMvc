@@ -1,0 +1,40 @@
+﻿@{
+    // Layout = "~/Areas/UserPanel/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "داشبورد کاربر" + User.Identity.Name;
+}
+
+<h2 class="mb-4">سلام علی عزیز 👋</h2>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">سفارش‌های من</h5>
+                <p class="card-text">مشاهده وضعیت سفارش‌ها و تاریخچه خرید.</p>
+                <a href="#" class="btn btn-primary btn-sm">مشاهده سفارش‌ها</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">پروفایل</h5>
+                <p class="card-text">ویرایش اطلاعات شخصی و رمز عبور.</p>
+                <a href="#" class="btn btn-success btn-sm">ویرایش پروفایل</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">پیام‌ها</h5>
+                <p class="card-text">مشاهده پیام‌ها و اعلان‌های جدید.</p>
+                <a href="#" class="btn btn-warning btn-sm">مشاهده پیام‌ها</a>
+            </div>
+        </div>
+    </div>
+
+</div>

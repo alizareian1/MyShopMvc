@@ -1,0 +1,61 @@
+﻿@model TachraFac.Core.DTOs.LoginViewModel
+
+@{
+    ViewData["Title"] = "ورود به سایت";
+}
+<div class="owl-carousel-item position-relative">
+    <img class="img-fluid" src="~/img/carousel-123.jpg" alt="Freshly Baked Bread">
+    <div class="owl-carousel-inner">
+        <div class="container">
+            <div class="row justify-content-start">
+                @* <div class="col-lg-8">
+                    <p class="text-primary text-uppercase fw-bold mb-2">// Freshly Baked Every Day</p>
+                    <h1 class="display-1 text-light mb-4 animated slideInDown">Taste the Difference</h1>
+                    <p class="text-light fs-5 mb-4 pb-3">Discover the perfect blend of tradition and flavor with our artisan baked goods.</p>
+                    <a href="#products" class="btn btn-primary rounded-pill py-3 px-5">Explore Now</a>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="register-containerr">
+    @if(ViewBag.IsSuccess != null){
+        <div class="alert alert-success">
+            <p class="help-block">ورود با موفقیت انجام شد</p>
+        </div>
+        <script>
+            var delay = 3000;
+            setTimeout(function(){window.location = "https://localhost:7205/";}, delay);
+        </script>
+    }
+    <h2>ورود</h2>
+    <form asp-action="Login" method="post">
+        <div class="input-group">
+            <label>نام کاربری</label>
+            <input asp-for="UserName" type="text" placeholder="نام کاربری ">
+        </div>
+        @* <span asp-validation-for="UserName"></span> *@
+
+
+        <div class="input-group">
+            <label>تکرار رمز عبور</label>
+            <input asp-for="Password" type="password" placeholder="تکرار رمز عبور">
+            @* <span asp-validation-for="Password"></span> *@
+        </div>
+        
+
+        <div class="remmeber-me">
+            <label><input asp-for="RemmemerMe" type="checkbox" name="" />مرا به خاطر بسپار</label>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="link">
+            @* <a href="/ForgotPassword"><i class="zmdi zmdi-lock">کلمه عبور را فراموش کرده ام</i></a>
+            <a href="/Register"><i class="zmdi zmdi-account">عضویت در سایت</i></a> *@
+        </div>
+        <p class="login-linkk"><i class="zmdi zmdi-lock"> <a href="/ForgotPassword">کلمه عبور را فراموش کرده ام</a></i></p>
+        <p class="login-linkk"><i class="zmdi zmdi-account"> <a href="/Login">عضویت در سایت</a></i></p>
+
+        <button type="submit" class="btn btn-success" value="ورود به سایت">ورود به سایت</button>
+    </form>
+</div>

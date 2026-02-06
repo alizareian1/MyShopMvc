@@ -1,0 +1,66 @@
+﻿@model TachraFac.Core.DTOs.RegisterViewModel
+@{
+	ViewData["Title"] = "ثبت نام";
+}
+
+@* <nav aria-label="breadcrumb">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">تاپ لرن</a></li>
+        <li class="breadcrumb-item active" aria-current="page">عضویت در سایت</li>
+    </ul>
+</nav> *@
+@* @{
+	ViewBag.Name = "عضویت در سایت"; 
+} *@
+
+<div class="owl-carousel-item position-relative">
+    <img class="img-fluid" src="~/img/carousel-123.jpg" alt="Freshly Baked Bread">
+    <div class="owl-carousel-inner">
+        <div class="container">
+            <div class="row justify-content-start">
+                @* <div class="col-lg-8">
+                    <p class="text-primary text-uppercase fw-bold mb-2">// Freshly Baked Every Day</p>
+                    <h1 class="display-1 text-light mb-4 animated slideInDown">Taste the Difference</h1>
+                    <p class="text-light fs-5 mb-4 pb-3">Discover the perfect blend of tradition and flavor with our artisan baked goods.</p>
+                    <a href="#products" class="btn btn-primary rounded-pill py-3 px-5">Explore Now</a>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Form -->
+<div class="register-containerr">
+    <h2>ثبت نام</h2>
+
+    <form asp-action="Register" method="post">
+        <div class="input-group">
+            <label>نام کاربری</label>
+            <input asp-for="UserName" type="text" placeholder="نام کاربری ">
+        </div>
+
+
+        <div class="input-group">
+            <label>ایمیل</label>
+            <input asp-for="Email" type="email" placeholder="ایمیل">
+        </div>
+
+        <div class="input-group">
+            <label>رمز عبور</label>
+            <input asp-for="Password" type="password" placeholder="رمز عبور">
+         </div>
+           
+
+        
+        <div class="input-group">
+            <label>تکرار رمز عبور</label>
+            <input asp-for="RePassword"  type="password" placeholder="تکرار رمز عبور">
+        </div>
+        
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <button type="submit" class="btn btn-success" value="ثبت نام">ثبت نام</button>
+    </form>
+
+    <p class="login-linkk">حساب دارید؟ <a href="/Login">ورود</a></p>
+</div>
