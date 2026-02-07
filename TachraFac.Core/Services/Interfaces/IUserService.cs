@@ -10,6 +10,8 @@ namespace TachraFac.Core.Services.Interfaces
 {
     public interface IUserService
     {
+        #region UserService
+
         bool IsUserNameExist(string userName);
         bool IsEmailExist(string email);
         int AddUser(User user);
@@ -18,5 +20,15 @@ namespace TachraFac.Core.Services.Interfaces
         User GetUserByUserName(string username);
         User GetUserByActiveCode(string activeCode);
         void UpdateUser(User user);
+
+        #endregion
+
+
+
+        #region UserPanel
+
+        InformationUserViewModel GetUserInformation(string username);
+
+        #endregion
     }
 }

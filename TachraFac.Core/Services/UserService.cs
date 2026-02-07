@@ -50,6 +50,19 @@ namespace TachraFac.Core.Services
             return _context.tblUser.SingleOrDefault(u => u.UserName == username);
         }
 
+        public InformationUserViewModel GetUserInformation(string username)
+        {
+            var user = GetUserByUserName(username);
+            InformationUserViewModel information = new InformationUserViewModel();
+            information.UserName = user.UserName;
+            information.Email = user.Email;
+            information.RegiisterDate = user.RegisterDate;
+            information.Wallet = 0;
+
+            // Add another parameters
+            return information;
+        }
+
         public bool IsEmailExist(string email)
         {
             return _context.tblUser.Any(u => u.Email == email);
