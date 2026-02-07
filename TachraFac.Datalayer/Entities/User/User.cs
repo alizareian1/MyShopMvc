@@ -47,6 +47,7 @@ namespace TachraFac.Datalayer.Entities.User
 
         #region Relation
         public List<UserRole> userRoles { get; set; }
+        public ICollection<Contact> contacts { get; set; }
         #endregion
     }
 }

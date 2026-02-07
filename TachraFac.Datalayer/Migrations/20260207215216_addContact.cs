@@ -6,11 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TachraFac.Datalayer.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class addContact : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ContactType",
+                columns: table => new
+                {
+                    ContactId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ContactName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactType", x => x.ContactId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "tblRole",
                 columns: table => new
@@ -44,6 +57,33 @@ namespace TachraFac.Datalayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Contact",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactTypeId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contact", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Contact_ContactType_ContactTypeId",
+                        column: x => x.ContactTypeId,
+                        principalTable: "ContactType",
+                        principalColumn: "ContactId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Contact_tblUser_UserId",
+                        column: x => x.UserId,
+                        principalTable: "tblUser",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tblUserRole",
                 columns: table => new
                 {
@@ -70,6 +110,16 @@ namespace TachraFac.Datalayer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Contact_ContactTypeId",
+                table: "Contact",
+                column: "ContactTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Contact_UserId",
+                table: "Contact",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_tblUserRole_RoleId",
                 table: "tblUserRole",
                 column: "RoleId");
@@ -84,7 +134,13 @@ namespace TachraFac.Datalayer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Contact");
+
+            migrationBuilder.DropTable(
                 name: "tblUserRole");
+
+            migrationBuilder.DropTable(
+                name: "ContactType");
 
             migrationBuilder.DropTable(
                 name: "tblRole");

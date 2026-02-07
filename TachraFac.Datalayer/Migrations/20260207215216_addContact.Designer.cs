@@ -12,8 +12,8 @@ using TachraFac.Datalayer.Context;
 namespace TachraFac.Datalayer.Migrations
 {
     [DbContext(typeof(TachraContext))]
-    [Migration("20260205220451_init")]
-    partial class init
+    [Migration("20260207215216_addContact")]
+    partial class addContact
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,50 @@ namespace TachraFac.Datalayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("TachraFac.Datalayer.Entities.User.Contact", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ContactTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContactTypeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Contact");
+                });
+
+            modelBuilder.Entity("TachraFac.Datalayer.Entities.User.ContactType", b =>
+                {
+                    b.Property<int>("ContactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"));
+
+                    b.Property<string>("ContactName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContactId");
+
+                    b.ToTable("ContactType");
+                });
 
             modelBuilder.Entity("TachraFac.Datalayer.Entities.User.Role", b =>
                 {
@@ -108,6 +152,25 @@ namespace TachraFac.Datalayer.Migrations
                     b.ToTable("tblUserRole");
                 });
 
+            modelBuilder.Entity("TachraFac.Datalayer.Entities.User.Contact", b =>
+                {
+                    b.HasOne("TachraFac.Datalayer.Entities.User.ContactType", "ContactType")
+                        .WithMany("contacts")
+                        .HasForeignKey("ContactTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TachraFac.Datalayer.Entities.User.User", "User")
+                        .WithMany("contacts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ContactType");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TachraFac.Datalayer.Entities.User.UserRole", b =>
                 {
                     b.HasOne("TachraFac.Datalayer.Entities.User.Role", "role")
@@ -127,6 +190,11 @@ namespace TachraFac.Datalayer.Migrations
                     b.Navigation("user");
                 });
 
+            modelBuilder.Entity("TachraFac.Datalayer.Entities.User.ContactType", b =>
+                {
+                    b.Navigation("contacts");
+                });
+
             modelBuilder.Entity("TachraFac.Datalayer.Entities.User.Role", b =>
                 {
                     b.Navigation("userRoles");
@@ -134,6 +202,8 @@ namespace TachraFac.Datalayer.Migrations
 
             modelBuilder.Entity("TachraFac.Datalayer.Entities.User.User", b =>
                 {
+                    b.Navigation("contacts");
+
                     b.Navigation("userRoles");
                 });
 #pragma warning restore 612, 618
